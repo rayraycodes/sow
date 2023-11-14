@@ -1,0 +1,26 @@
+/* ContentFeed.css */
+
+.content-feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: scroll;
+    height: 100vh;
+    width: calc(100% - 300px); /* Adjust this value based on the width of your sidebar */
+    transition: width 0.3s ease;
+  }
+  
+  .content-item {
+    flex: 0 0 200px; /* Adjust this value to change the width of the content items */
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  /* Add a class to the content feed when the sidebar is hidden */
+  .content-feed.sidebar-hidden {
+    width: 100%;
+  }
