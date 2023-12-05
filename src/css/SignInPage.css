@@ -1,0 +1,26 @@
+/* SignInPage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.auth-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    transform: translate(-50%,050%);
+    left: 50%;
+    height: 60%;
+}
+
+.home-button {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    position: absolute;
+    top: -20%;
+    transform: translateX(-50%);
+  }

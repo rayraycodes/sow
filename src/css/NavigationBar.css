@@ -1,0 +1,24 @@
+/* Import the Montserrat font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+input.search-bar {
+  width: 30%; /* Set the width of the search bar to 30% */
+  margin: 10px auto; /* Center the search bar */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 50px; /* Make the search bar more circular */
+  border: 1px solid #ccc; /* Add a border to the search bar */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.signin-button {
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}

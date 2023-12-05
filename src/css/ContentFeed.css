@@ -1,26 +1,85 @@
 /* ContentFeed.css */
+/* Import the Montserrat font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.content-item h2 {
+  margin-top: 10px;
+  font-family: 'Montserrat', sans-serif; /* Apply the Montserrat font */
+  font-size: 14px; /* Make the font smaller */
+  text-align: center; /* Center align the text */
+  text-decoration: none; /* Remove the underline */
+  margin-bottom: 5px;
+}
 
 .content-feed {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    overflow-y: scroll;
-    height: 100vh;
-    width: calc(100% - 300px); /* Adjust this value based on the width of your sidebar */
-    transition: width 0.3s ease;
-  }
-  
-  .content-item {
-    flex: 0 0 200px; /* Adjust this value to change the width of the content items */
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  /* Add a class to the content feed when the sidebar is hidden */
-  .content-feed.sidebar-hidden {
-    width: 100%;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: scroll;
+  height: 100vh;
+  width: calc(100% - 300px); /* Adjust this value based on the width of your sidebar */
+  transition: width 0.3s ease;
+}
+
+.content-item {
+  flex: 1 0 200px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 20px; /* Add this line */
+}
+
+.content-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px; /* Add this line */
+}
+.content-item h2 {
+  margin-top: 10px;
+}
+
+/* Add a class to the content feed when the sidebar is hidden */
+.content-feed.sidebar-hidden {
+  width: 100%;
+}
+
+.content-feed-wrapper {
+  overflow: auto;
+  width: 100%;
+}
+
+.content-feed-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.content-feed {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.content-item {
+  flex: 1 0 200px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.content-item img {
+  width: 100%;
+  height: auto;
+}
+
+/* ContentFeed.css */
+
+.content-feed a {
+  text-decoration: none;
+}
+
+.content-feed h2 {
+  text-decoration: none;
+  /* Your other styles */
+}

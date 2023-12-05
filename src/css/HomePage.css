@@ -1,0 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.home-page .content-container {
+        margin: auto;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        font-family: 'Montserrat', sans-serif; /* Apply the Montserrat font */
+        background-color: #fff;
+    }
