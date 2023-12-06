@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../css/ContentFeed.css';
 import supabase from './supabaseClient';
 
-function ContentFeed({ searchTerm }) {
+function ContentFeed({ searchTerm, selectedCategory }) {
   const [contents, setContents] = useState([]);
 
   useEffect(() => {
@@ -11,14 +11,17 @@ function ContentFeed({ searchTerm }) {
       const { data, error } = await supabase.from('story_details').select('*');
       if (error) console.log('Data fetch error: ', error);
       else setContents(data);
+      console.log(data);
     };
 
     fetchData();
   }, []);
 
   const filteredContents = contents.filter(content =>
-    content.s_name.toLowerCase().includes(searchTerm.toLowerCase())
+    content.s_name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    (!selectedCategory || content.category === selectedCategory)
   );
+  console.log(filteredContents);
 
   return (
     <div className="content-feed">
