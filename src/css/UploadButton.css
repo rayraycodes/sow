@@ -1,0 +1,32 @@
+/* Import the Montserrat font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+/* UploadButton.css */
+.upload-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .button {
+    background-color: #4CAF50; /* Adjust color as needed */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #45a049; /* Adjust hover color as needed */
+  }
+
+  .button.active {
+    background-color: grey;
+  }

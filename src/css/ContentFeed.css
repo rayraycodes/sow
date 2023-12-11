@@ -17,20 +17,35 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  overflow-y: scroll;
-  height: 100vh;
-  width: calc(100% - 300px); /* Adjust this value based on the width of your sidebar */
+  height: 80%;
+  width: 100%; /* Set width to 100% */
   transition: width 0.3s ease;
-}
 
+
+  /* Hide vertical scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide vertical scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.content-feed::-webkit-scrollbar {
+  display: none;
+}
+.content-feed {
+  -ms-overflow-style: none;  /* Internet Explorer and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 .content-item {
-  flex: 1 0 200px;
+  flex: 0 0 200px; /* Change this line */
   margin: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  border-radius: 20px; /* Add this line */
+  border-radius: 20px;
+  max-width: calc(15% - 20px); /* Set max-width to 100% minus the total horizontal margin */
 }
-
 .content-item img {
   width: 100%;
   height: auto;
@@ -55,10 +70,10 @@
 }
 
 .content-feed {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
+  width: 88%;
+  margin: 0 auto;
+  height: 100vh; /* make the height equal to the viewport height */
+  overflow: auto; /* enable scrolling */
 }
 
 .content-item {
@@ -82,4 +97,21 @@
 .content-feed h2 {
   text-decoration: none;
   /* Your other styles */
+}
+
+.content-feed::-webkit-scrollbar {
+  width: 10px;
+}
+
+.content-feed::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.content-feed::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.content-feed::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

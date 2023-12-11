@@ -13,7 +13,7 @@ input.search-bar {
   padding: 10px;
 }
 
-.signin-button {
+.signin-button, .signout-button, .profile-button{
   border-radius: 50px;
   border: 1px solid #ccc;
   padding: 5px 10px;
@@ -21,4 +21,15 @@ input.search-bar {
   font-size: 14px;
   background-color: white;
   cursor: pointer;
+  margin-right: 20px;
+  text-decoration: none; /* Add this line */
+}
+
+body{
+  width: 100%;
+}
+
+a{
+  text-decoration: none; /* Add this line */
+
 }

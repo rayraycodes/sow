@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { Dropdown } from 'react-bootstrap';
+import React, { useState, useContext } from 'react';
 import Sidebar from './Sidebar';
 import '../css/NavigationBar.css';
 import HamburgerMenu from 'react-hamburger-menu';
+import { AuthContext } from '../contexts/AuthContext'; 
+import supabase from '../components/supabaseClient'; 
+
+import { Link } from 'react-router-dom';
+
 
 function NavigationBar({ searchTerm, setSearchTerm }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { isSignedIn, setIsSignedIn } = useContext(AuthContext);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -16,6 +19,12 @@ function NavigationBar({ searchTerm, setSearchTerm }) {
 
   const handleSearch = event => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleSignOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) console.log("Sign Out Error: ", error);
+    else setIsSignedIn(false);
   };
 
   return (
@@ -36,12 +45,20 @@ function NavigationBar({ searchTerm, setSearchTerm }) {
       </div>
         
         <input className="search-bar" type="search" placeholder="Search Stories..." value={searchTerm} onChange={handleSearch}/>
+        {isSignedIn ? (
+          <>
+           <Link to="/profile" className="profile-button">Profile</Link>
+           <button className="signout-button" onClick={handleSignOut}>
+            Sign Out
+          </button>
+          </>
+        ) : (
+          <button className="signin-button" onClick={() => window.location.href='/signin'}>
+            Sign In
+          </button>
+        )}
 
-        <button className="signin-button" onClick={() => window.location.href='/signin'}>
-          Sign In
-        </button>
 
-// ...
       </nav>
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
     </div>

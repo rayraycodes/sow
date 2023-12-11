@@ -9,3 +9,6 @@
         font-family: 'Montserrat', sans-serif; /* Apply the Montserrat font */
         background-color: #fff;
     }
+    body {
+        overflow-x: hidden;
+      }
