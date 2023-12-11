@@ -36,8 +36,12 @@ function UploadCompleteStory() {
           <input {...register('storyType', { required: true })} />
         </label>
         <label>
-          Category:
-          <input {...register('category', { required: true })} />
+        Story Type:
+        <select {...register('category', { required: true })}>
+          {[...Array(20).keys()].map(i => (
+            <option value={i + 1} key={i + 1}>{i + 1}</option>
+          ))}
+        </select>
         </label>
         <label>
           Location:
@@ -45,12 +49,12 @@ function UploadCompleteStory() {
         </label>
         
         <label>
-          Audio File:
-          <input {...register('audio', { required: true })} type="file" accept="audio/mp3" />
+          Art File Link:
+          <input {...register('text_content', { required: true })} />
         </label>
         <label>
-          Art File:
-          <input {...register('art', { required: true })} type="file" accept="image/jpeg" />
+          Audio File Link:
+          <input {...register('text_content', { required: true })} />
         </label>
         <label>
           Story Content:

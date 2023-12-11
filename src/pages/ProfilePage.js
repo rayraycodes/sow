@@ -1,10 +1,16 @@
-import supabase from '../components/supabaseClient'; 
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import '../css/ProfilePage.css'; // Import the CSS file
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
+import supabase from '../components/supabaseClient';
+import ContentFeed from "../components/ContentFeed";
+import { Link } from 'react-router-dom';
 
 function ProfilePage() {
   const [email, setEmail] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [stories, setStories] = useState([]);
+  const { userId } = useContext(AuthContext);
 
   useEffect(() => {
     supabase.auth.onAuthStateChange(
@@ -14,20 +20,31 @@ function ProfilePage() {
         }
       }
     );
-  }, []);
+
+    const fetchStories = async () => {
+      const { data: stories, error } = await supabase
+        .from('story_details')
+        .select('*')
+        .eq('uuid', userId);
+      if (error) console.log('Error fetching stories: ', error);
+      else setStories(stories);
+    };
+
+    fetchStories();
+  }, [userId]);
 
   return (
     <div className="profile-page">
+      <Link to="/" className="home-button">Go Back Home</Link>
       <div className="profile-card">
         <div className="profile-header">
           <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Profile" className="profile-picture" />
           <h1 className="user">{email}</h1>
         </div>
+        <p>Your Stories</p>
         <div className="profile-details">
-          <p className="detail">Number of stories: 10</p>
-          <p className="detail">Contributions: 5</p>
+          <ContentFeed searchTerm={searchTerm} selectedCategory={selectedCategory} userId={userId}/>
         </div>
-        <Link to="/" className="home-button">Go Back Home</Link>
       </div>
     </div>
   );

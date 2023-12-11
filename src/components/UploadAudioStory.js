@@ -26,8 +26,12 @@ function UploadAudioStory() {
           <input {...register('storyName', { required: true })} />
         </label>
         <label>
-          Story Type:
-          <input {...register('storyType', { required: true })} />
+        Story Type:
+        <select {...register('category', { required: true })}>
+          {[...Array(20).keys()].map(i => (
+            <option value={i + 1} key={i + 1}>{i + 1}</option>
+          ))}
+        </select>
         </label>
         <label>
           Category:
@@ -37,9 +41,9 @@ function UploadAudioStory() {
           Location:
           <input {...register('location', { required: true })} />
         </label>
-        <label>
-          Audio File:
-          <input {...register('audio', { required: true })} type="file" accept="audio/mp3" />
+       <label>
+          Art File Link:
+          <input {...register('text_content', { required: true })} />
         </label>
         <button className="button" type="submit">Upload Audio Story</button>
       </form>

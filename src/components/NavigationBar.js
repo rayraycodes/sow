@@ -44,7 +44,11 @@ function NavigationBar({ searchTerm, setSearchTerm }) {
         />
       </div>
         
+          
+      <div style={{ display: 'flex', justifyContent: 'center', flex: 1 }}>
         <input className="search-bar" type="search" placeholder="Search Stories..." value={searchTerm} onChange={handleSearch}/>
+      </div>
+
         {isSignedIn ? (
           <>
            <Link to="/profile" className="profile-button">Profile</Link>

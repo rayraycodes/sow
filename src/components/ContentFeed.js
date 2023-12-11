@@ -6,20 +6,23 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 
 
-function ContentFeed({ searchTerm, selectedCategory }) {
+function ContentFeed({ searchTerm, selectedCategory, userId}) {
   const [contents, setContents] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data, error } = await supabase.from('story_details').select('*');
+      let { data, error } = await supabase.from('story_details').select('*');
+      if (userId) {
+        data = data.filter(content => content.uuid === userId);
+      }
       if (error) console.log('Data fetch error: ', error);
       else setContents(data);
       setLoading(false);
     };
 
     fetchData();
-  }, []);
+  }, [userId]);
 
   const filteredContents = contents.filter(content =>
     content.s_name.toLowerCase().includes(searchTerm.toLowerCase()) &&

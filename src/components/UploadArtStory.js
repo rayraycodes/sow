@@ -25,8 +25,12 @@ function UploadArtStory() {
           <input {...register('storyName', { required: true })} />
         </label>
         <label>
-          Story Type:
-          <input {...register('storyType', { required: true })} />
+        Story Type:
+        <select {...register('category', { required: true })}>
+          {[...Array(20).keys()].map(i => (
+            <option value={i + 1} key={i + 1}>{i + 1}</option>
+          ))}
+        </select>
         </label>
         <label>
           Category:
@@ -37,8 +41,8 @@ function UploadArtStory() {
           <input {...register('location', { required: true })} />
         </label>
         <label>
-          Art File:
-          <input {...register('art', { required: true })} type="file" accept="image/jpeg" />
+          Art File Link:
+          <input {...register('text_content', { required: true })} />
         </label>
         <button className="button" type="submit">Upload Art Story</button>
       </form>

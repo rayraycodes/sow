@@ -23,4 +23,8 @@
     position: absolute;
     top: -20%;
     transform: translateX(-50%);
+    top: 20%;
+}
+.content-feed a {
+    text-decoration: auto !important;   
   }

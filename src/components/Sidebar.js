@@ -28,6 +28,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
   return (
     <div className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
       <h1 style={{color: 'white', paddingLeft: '20px'}}>Categories</h1>
+      <p style={{color: 'white', paddingLeft: '20px', cursor: 'pointer'}} onClick={() => handleCategoryClick()}>All</p>
       {categories.map((category, index) => (
         <p key={index} style={{color: 'white', paddingLeft: '20px', cursor: 'pointer'}} onClick={() => handleCategoryClick(category.cat_id)}>{category.name}</p>
       ))}
